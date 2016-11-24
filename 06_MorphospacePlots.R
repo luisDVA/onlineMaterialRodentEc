@@ -7,7 +7,7 @@ library(ggplot2)
 library(ggrepel)
 
 
-# Read diet data
+# Read ecology data
 ecolData <- read.csv("DietLocomotion.csv",stringsAsFactors = FALSE)%>% 
   select(sp,DietCond,Locomotion)
 ecolData$sp <- gsub(" ","_",ecolData$sp)
@@ -74,6 +74,8 @@ dietMorphospace$miscl[which(dietMorphospace$miscl==T)] <- NA
 dietMorphospace$miscl[which(dietMorphospace$DietCond=="U")] <- NA
 dietMorphospace$miscl[which(dietMorphospace$miscl==F)] <- dietMorphospace$DietCond[which(dietMorphospace$miscl==F)]
 
+# write to disk
+write.csv(dietMorphospace,file="dietFDAvariatesPreds.csv")
 
 # plot figure
  
@@ -133,6 +135,9 @@ locMorphospace$locPred <- factor(locMorphospace$locPred)
 locMorphospace$miscl[which(locMorphospace$miscl==T)] <- NA
 locMorphospace$miscl[which(locMorphospace$Locomotion=="U")] <- NA
 locMorphospace$miscl[which(locMorphospace$miscl==F)] <- locMorphospace$Locomotion[which(locMorphospace$miscl==F)]
+
+# write to disk
+write.csv(locMorphospace,file="locFDAvariatesPreds.csv")
 
 # plotting
 

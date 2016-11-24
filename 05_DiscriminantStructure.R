@@ -5,7 +5,7 @@ library(dplyr)
 library(mda)
 
 
-# Read diet data
+# Read ecology data
 ecolData <- read.csv("DietLocomotion.csv",stringsAsFactors = FALSE)%>% 
   select(sp,DietCond,Locomotion)
 ecolData$sp <- gsub(" ","_",ecolData$sp)
